@@ -1,0 +1,140 @@
+/* https://coolors.co/3b6d9c-5c5c65-fab75d-90caec-eeeeee */
+:root {
+  --radius: 5px;
+  --dark-slate: #393939;
+  --blusish: #52a4fe;
+  --cool-gray:  #a6a6a6;
+}
+
+body {
+  font-family: sans-serif;
+  background: #1c1c1c;
+  color: var(--cool-gray);
+  box-sizing: border-box;
+}
+
+.container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.todo-list {
+  border: 0;
+  padding: 0;
+}
+
+.todo-list__title {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #262626;
+  border-radius: var(--radius);
+}
+
+.todo-list__count {
+  text-transform: uppercase;
+  font-size: 10px;
+  position: absolute;
+  font-weight: normal;
+  top: 7px;
+  right: 8px;
+}
+
+.todo-list__items {
+  width: 100%;
+  list-style: none;
+  margin: 0 0 15px;
+  padding: 10px;
+  max-height: 2000px;
+}
+
+.todo-list__items--completed {
+  max-height: 0;
+}
+
+.todo-item {
+  display: block;
+  padding: 15px 10px;
+  border-bottom: 1px solid var(--dark-slate);
+}
+
+.todo-item--completed {
+  text-decoration: line-through;
+}
+
+.todo-item__checkbox {
+  float: left;
+  display: block;
+  height: 20px;
+  width: 20px;
+  border:  3px solid var(--dark-slate);
+  border-radius: 50%;
+  content: '';
+  margin-right: 10px;
+}
+
+.todo-item__checkbox:hover {
+  cursor: pointer;
+}
+
+.todo-item--completed .todo-item__checkbox {
+  background-color: var(--dark-slate);
+  background-image: url(./check.svg);
+  background-repeat: no-repeat;
+  background-position: 3px 5px;
+}
+
+.todo-item__checkbox-input,
+.todo-item__checkbox-label {
+  display: none;
+}
+
+.todo-item__title {
+  background: none;
+  color: var(--cool-gray);
+  font-size: 14px;
+  border: 0;
+  width: 90%;
+  display: block;
+  padding: 5px;
+}
+
+.todo-item__title:focus {
+  outline-color: var(--cool-gray);
+  outline-offset: -2px;
+  outline-width: 2px;
+}
+
+.todo-item__title-label {
+  display: none;
+}
+
+li:last-child .todo-item {
+  border-bottom: 0;
+}
+
+.todo-item input[type='checkbox'] {
+  visibility: hidden;
+}
+
+button {
+  padding: 10px;
+  margin: 0;
+  border: 0;
+  background: #262626;
+  color: #52a4fe;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: var(--radius);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+button:hover {
+  cursor: pointer;
+  content: '';
+}

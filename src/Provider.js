@@ -7,7 +7,7 @@ const AppContext = createContext();
 const { Provider, Consumer } = AppContext;
 
 // Declare our provider.
-// This use the .Provider thingy that
+// This use the Provider thingy that
 // got added by createContext() above;
 class AppProvider extends Component {
   state = {
@@ -19,10 +19,39 @@ class AppProvider extends Component {
     return(
       <Provider value={{
         todos: this.state.todos,
+        /**
+         * Update the todo item.
+         */
+        updateItem: (update, id) => {
+          let currentState = Object.assign({}, this.state);
+          currentState.todos[id].title = update.target.value;
+          this.setState(currentState);
+        },
+
+        /**
+         * Mark a todo as completed.
+         */
         markCompleted: (id) => {
           let currentState = Object.assign({}, this.state);
           currentState.todos[id].completed = !currentState.todos[id].completed;
           this.setState(currentState);
+        },
+        /**
+         * Create a new todo.
+         */
+        createTodo: (event) => {
+          let currentState = Object.assign({}, this.state);
+          currentState.todos.unshift({
+            "userId": 1,
+            "id": currentState.todos.length + 1,
+            "title": '', //input.value,
+            "completed": false
+          });
+          this.setState(currentState, () => {
+            let newTodo = document.querySelector('.todo-item:first-child .todo-item__title');
+            newTodo.focus();
+          });
+          // Something like document.querySelector(".todo-item:first-child input").focue()?
         }
       }}>
         {this.props.children}

@@ -1,23 +1,16 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import style from './style';
+import React from 'react';
+import { render } from 'react-dom';
 import { AppProvider } from './Provider';
-import TodoList from './TodoList';
+import Main from './Main';
 
-
-class App extends Component {
-  render() {
-    return (
-      <div className={style}>
-        <TodoList />
-      </div>
-    );
-  }
-}
-
+/**
+ * Render our React app
+ */
 render(
   <AppProvider>
-    <App />
+    <div className="container">
+      <Main />
+    </div>
   </AppProvider>,
   document.getElementById("root")
 );
