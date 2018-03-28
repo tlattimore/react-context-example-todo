@@ -1,0 +1,26 @@
+{
+  "name": "new",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://codesandbox.io/s/new",
+  "main": "src/index.js",
+  "dependencies": {
+    "axios": "0.18.0",
+    "css-loader": "^0.28.11",
+    "emotion": "9.1.0",
+    "file-loader": "^1.1.11",
+    "react": "^16.3.0-alpha.3",
+    "react-dom": "^16.3.0-alpha.3",
+    "react-emotion": "9.1.0",
+    "react-scripts": "1.1.0",
+    "style-loader": "^0.20.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
