@@ -19,39 +19,28 @@ class AppProvider extends Component {
     return(
       <Provider value={{
         todos: this.state.todos,
-        /**
-         * Update the todo item.
-         */
-        updateItem: (update, id) => {
-          let currentState = Object.assign({}, this.state);
-          currentState.todos[id].title = update.target.value;
-          this.setState(currentState);
-        },
-
-        /**
-         * Mark a todo as completed.
-         */
-        markCompleted: (id) => {
-          let currentState = Object.assign({}, this.state);
-          currentState.todos[id].completed = !currentState.todos[id].completed;
-          this.setState(currentState);
-        },
-        /**
-         * Create a new todo.
-         */
         createTodo: (event) => {
           let currentState = Object.assign({}, this.state);
           currentState.todos.unshift({
             "userId": 1,
             "id": currentState.todos.length + 1,
-            "title": '', //input.value,
-            "completed": false
+            "title": '',
+            "completed": false,
           });
-          this.setState(currentState, () => {
-            let newTodo = document.querySelector('.todo-item:first-child .todo-item__title');
-            newTodo.focus();
-          });
-          // Something like document.querySelector(".todo-item:first-child input").focue()?
+          this.setState(currentState);
+        },
+        updateTodoTitle: (update, id) => {
+          let currentState = Object.assign({}, this.state);
+          currentState.todos[id].title = update.target.value;
+          this.setState(currentState);
+        },
+        /**
+         * Mark a todo as completed.
+         */
+        toggleTodoCompletion: (id) => {
+          let currentState = Object.assign({}, this.state);
+          currentState.todos[id].completed = !currentState.todos[id].completed;
+          this.setState(currentState);
         }
       }}>
         {this.props.children}
