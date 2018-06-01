@@ -70,10 +70,6 @@ class TodoList extends Component {
   }
 }
 
-TodoList.defaultProps = {
-  completed: false,
-}
-
 TodoList.propTypes = {
   completed: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
